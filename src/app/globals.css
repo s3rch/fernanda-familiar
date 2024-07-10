@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.page-detail p {
+  @apply pb-6 leading-7;
+}
