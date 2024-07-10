@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
   const response = await fetch(`https://fernandafamiliar.soy/wp-json/wp/v2/posts/?per_page=${limit}&offset=${offset}`);
 
   if (!response.ok) {
-    throw new Error("Error fetching");
+    throw new Error("External error fetching");
   }
 
   const data: NewsResponse[] = await response.json();

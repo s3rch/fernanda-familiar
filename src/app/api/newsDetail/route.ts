@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   const response = await fetch(`https://fernandafamiliar.soy/wp-json/wp/v2/posts/?slug=${slug}`);
 
   if (!response.ok) {
-    throw new Error("Error fetching");
+    throw new Error("External error fetching");
   }
 
   const data: NewsDetailResponse[] = await response.json();

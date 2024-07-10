@@ -7,7 +7,7 @@ export const getNewsDetail = async (slug = ''): Promise<NewsDetailProps> => {
   const response = await fetch(url);
 
   if (!response.ok) {
-    throw new Error("Error fetching");
+    throw new Error("Internal error fetching");
   }
 
   const data = await response.json();
