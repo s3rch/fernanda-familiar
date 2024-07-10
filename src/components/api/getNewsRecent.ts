@@ -4,15 +4,13 @@ import { NewsItem } from "../home";
 
 export const getNewsRecent = async (limit = 5, offset = 1): Promise<NewsItem[]> => {
   const url = getUrl(`/api/newsAll?limit=${limit}&offset=${offset}`);
-  const response = await fetch(url);
+  const res = await fetch(url);
 
-  console.log({ response });
-
-  if (!response.ok) {
+  if (!res.ok) {
     throw new Error("Internal error fetching");
   }
 
-  const data = await response.json();
+  const data = await res.json();
 
   if (!data.response) {
     notFound();

@@ -4,15 +4,13 @@ import { NewsDetailProps } from "../details";
 
 export const getNewsDetail = async (slug = ''): Promise<NewsDetailProps> => {
   const url = getUrl(`/api/newsDetail?slug=${slug}`);
-  const response = await fetch(url);
+  const res = await fetch(url);
 
-  console.log({ response });
-
-  if (!response.ok) {
+  if (!res.ok) {
     throw new Error("Internal error fetching");
   }
 
-  const data = await response.json();
+  const data = await res.json();
 
   if (!data.response) {
     notFound();

@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
   });
 
   if (!res.ok) {
-    throw new Error("External error fetching");
+    throw new Error(`External error fetching: ${res.status} - ${res.statusText}`);
   }
 
   const data: NewsDetailResponse[] = await res.json();
