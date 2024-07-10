@@ -7,30 +7,30 @@ interface Props {
 }
 
 // Build all static pages
-export async function generateStaticParams() {
-  const allNews = await getNewsRecent();
+// export async function generateStaticParams() {
+//   const allNews = await getNewsRecent();
 
-  return allNews.map(news => ({
-    slug: news.slug,
-  }));
-}
+//   return allNews.map(news => ({
+//     slug: news.slug,
+//   }));
+// }
 
 // Generate Meta data per page
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  try {
-    const { title, id } = await getNewsDetail(params.slug);
+// export async function generateMetadata({ params }: Props): Promise<Metadata> {
+//   try {
+//     const { title, id } = await getNewsDetail(params.slug);
 
-    return {
-      title,
-      description: `${id} - ${title}`
-    }
-  } catch (error) {
-    return {
-      title: 'Página detalle noticia',
-      description: 'Esta noticia no fue encontrada.'
-    }
-  }
-}
+//     return {
+//       title,
+//       description: `${id} - ${title}`
+//     }
+//   } catch (error) {
+//     return {
+//       title: 'Página detalle noticia',
+//       description: 'Esta noticia no fue encontrada.'
+//     }
+//   }
+// }
 
 export default async function NewsLayout({ params }: Props) {
   const detail = await getNewsDetail(params.slug);
