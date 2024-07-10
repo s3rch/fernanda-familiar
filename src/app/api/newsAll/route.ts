@@ -6,8 +6,13 @@ export async function GET(request: NextRequest) {
   const limit = searchParams.get('limit');
   const offset = searchParams.get('offset');
 
-  const data: NewsResponse[] = await fetch(`https://fernandafamiliar.soy/wp-json/wp/v2/posts/?per_page=${limit}&offset=${offset}`)
-    .then(res => res.json());
+  const response = await fetch(`https://fernandafamiliar.soy/wp-json/wp/v2/posts/?per_page=${limit}&offset=${offset}`);
+
+  if (!response.ok) {
+    throw new Error("Error fetching");
+  }
+
+  const data: NewsResponse[] = await response.json();
 
   const allNews = data.map(newsItem => ({
     excerpt: newsItem.excerpt.rendered,

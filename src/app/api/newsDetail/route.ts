@@ -5,8 +5,13 @@ export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const slug = searchParams.get('slug');
 
-  const data: NewsDetailResponse[] = await fetch(`https://fernandafamiliar.soy/wp-json/wp/v2/posts/?slug=${slug}`)
-    .then(res => res.json());
+  const response = await fetch(`https://fernandafamiliar.soy/wp-json/wp/v2/posts/?slug=${slug}`);
+
+  if (!response.ok) {
+    throw new Error("Error fetching");
+  }
+
+  const data: NewsDetailResponse[] = await response.json();
 
   const detailNews = data.map(newsItem => ({
     content: newsItem.content.rendered,
