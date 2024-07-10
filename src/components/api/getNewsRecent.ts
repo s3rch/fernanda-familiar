@@ -1,10 +1,10 @@
+import getUrl from "@/utils/getUrlBase";
 import { notFound } from "next/navigation";
 import { NewsItem } from "../home";
 
 export const getNewsRecent = async (limit = 5, offset = 1): Promise<NewsItem[]> => {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-
-  const response = await fetch(`${baseUrl}/api/newsAll?limit=${limit}&offset=${offset}`);
+  const url = getUrl(`/api/newsAll?limit=${limit}&offset=${offset}`)
+  const response = await fetch(url);
 
   if (!response.ok) {
     throw new Error("Error fetching");

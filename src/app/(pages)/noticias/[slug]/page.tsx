@@ -7,13 +7,13 @@ interface Props {
 }
 
 // Build all static pages
-// export async function generateStaticParams() {
-//   const allNews = await getNewsRecent();
+export async function generateStaticParams() {
+  const allNews = await getNewsRecent();
 
-//   return allNews.map(news => ({
-//     slug: news.slug,
-//   }));
-// }
+  return allNews.map(news => ({
+    slug: news.slug,
+  }));
+}
 
 // Generate Meta data per page
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
