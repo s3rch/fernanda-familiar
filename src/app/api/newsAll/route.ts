@@ -1,18 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
 import { NewsResponse } from "@/components/home";
 
-export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
+export async function GET(req: NextRequest) {
+  const searchParams = req.nextUrl.searchParams
   const limit = searchParams.get('limit');
   const offset = searchParams.get('offset');
 
-  const response = await fetch(`https://fernandafamiliar.soy/wp-json/wp/v2/posts/?per_page=${limit}&offset=${offset}`);
+  const res = await fetch(`https://fernandafamiliar.soy/wp-json/wp/v2/posts/?per_page=${limit}&offset=${offset}`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 
-  if (!response.ok) {
+  if (!res.ok) {
     throw new Error("External error fetching");
   }
 
-  const data: NewsResponse[] = await response.json();
+  const data: NewsResponse[] = await res.json();
 
   const allNews = data.map(newsItem => ({
     excerpt: newsItem.excerpt.rendered,
