@@ -6,6 +6,8 @@ export const getNewsDetail = async (slug = ''): Promise<NewsDetailProps> => {
   const url = getUrl(`/api/newsDetail?slug=${slug}`);
   const response = await fetch(url);
 
+  console.log({ response });
+
   if (!response.ok) {
     throw new Error("Internal error fetching");
   }

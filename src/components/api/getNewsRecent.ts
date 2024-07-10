@@ -6,6 +6,8 @@ export const getNewsRecent = async (limit = 5, offset = 1): Promise<NewsItem[]> 
   const url = getUrl(`/api/newsAll?limit=${limit}&offset=${offset}`);
   const response = await fetch(url);
 
+  console.log({ response });
+
   if (!response.ok) {
     throw new Error("Internal error fetching");
   }
