@@ -1,8 +1,8 @@
-import { getNewsRecent } from "@/components/api";
+import { getDirectNewsRecent } from "@/api";
 import { NewsRecentList } from "./NewsRecentList";
 
 export const NewsRecent = async () => {
-  const newsList = await getNewsRecent();
+  const newsList = await getDirectNewsRecent();
 
   return (
     <div>

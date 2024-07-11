@@ -1,9 +1,9 @@
-import getUrl from "@/utils/getUrlBase";
+import { NewsDetailProps } from "@/components/details";
+import { getUrl } from "@/utils/getUrlBase";
 import { notFound } from "next/navigation";
-import { NewsItem } from "../home";
 
-export const getNewsRecent = async (limit = 5, offset = 1): Promise<NewsItem[]> => {
-  const url = getUrl(`/api/newsAll?limit=${limit}&offset=${offset}`);
+export const getNewsDetail = async (slug = ''): Promise<NewsDetailProps> => {
+  const url = getUrl(`/api/newsDetail?slug=${slug}`);
   const res = await fetch(url);
 
   if (!res.ok) {
