@@ -1,4 +1,5 @@
 import { GoogleTagManager } from '@next/third-parties/google';
+import { Analytics } from "@vercel/analytics/react"
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Footer, Header, Navbar } from "@/components";
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={inter.className}>
         <GoogleTagManager gtmId="GTM-XYZ" />
+        <Analytics/>
         <Header />
         <Navbar />
 

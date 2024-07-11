@@ -1,6 +1,6 @@
 {
   "name": "fernanda-familiar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/third-parties": "^14.2.4",
+    "@vercel/analytics": "^1.3.1",
     "luxon": "^3.4.4",
     "next": "^14.2.4",
     "react": "^18",
