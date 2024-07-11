@@ -30,7 +30,7 @@ bun dev
 
 4. Se utiliza el enfoque "App Router" en el desarrollo, ya que es el recomendado por Next JS en las últimas versiones. De tal modo que en la carpeta de "app" se implmenta el ruteo, páginas y layouts y en "components", los componentes que se renderizan del lado del servidor y del lado del cliente.
 
-5. Se implementa el renderizado de páginas estáticas en tiempo de compilación para la navegación sea más rápida para el usuario.
+5. Se implementa el renderizado de páginas estáticas en tiempo de compilación para que la navegación sea más rápida para el usuario.
 
 6. Se realiza carga perezosa de imágenes, para mostrar al usuario únicamente lo que ve en pantallas y cargar imágenes bajo demanda.
 
